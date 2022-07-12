@@ -1,0 +1,63 @@
+create table employee2(eid int,ename varchar(20),did int);
+insert into employee2 values(101,'ravi',10);
+insert into employee2 values(102,'ajay',10);
+insert into employee2 values(103,'animesh',20);
+insert into employee2 values(104,'nishant',40);
+insert into employee2 values(105,'ganesh',50);
+insert into employee2 values(106,'imran',60);
+insert into employee2 values(107,'nishant',60);
+select * from employee2;
+
+create table department2(did int,dname varchar(20),location varchar(20));
+insert into department2 values(10,'marketing','bhopal');
+insert into department2 values(20,'hr','delhi');
+insert into department2 values(40,'it','guna');
+insert into department2 values(50,'accounting','shahdol');
+insert into department2 values(60,'sales','indore');
+insert into department2 values(70,'executive','gwalior');
+select * from department2;
+
+select ename,dname from employee2,department2;
+
+select employee2.eid,employee2.ename,employee2.did,department2.did,department2.dname,department2.location from employee2,department2 where employee2.did=department2.did;
+
+select employee2.*,department2.* from employee2,department2 where employee2.did=department2.did;
+
+select employee2.*,department2.* from employee2,department2 where employee2.did=department2.did and ename='ajay';
+
+create table location(location varchar(20) primary key,city varchar(20);
+
+insert into location values(:location,:city);
+
+select * from location;
+
+select e.*,d.*,l.* from employee2 e,department2 d,location l where e.did=d.did and d.location=l.location;
+
+create table employees(ename varchar(20),salary int);
+
+insert into employees values(:ename,:salary);
+
+select * from employees;
+
+create table jobsalary(grade varchar(1),highersal number,lowersal number);
+
+insert into jobsalary values(:grade,:highersal,:lowersal);
+
+select * from jobsalary;
+
+select e.ename,e.salary,j.grade from employees e,jobsalary j where e.salary between j.lowersal and j.highersal;
+
+select ename,dname from employee2 natural join department2;
+
+select e.eid,e.ename,d.location from employee2 e join department2 d using (did);
+
+
+create table emp2(empno int,eaddress varchar(20),hiredate date);
+insert into emp2 values(:empno,:eaddress,:hiredate);
+select * from emp2;
+
+create table sal2(grade varchar(1),bonus number,basic number,empno number primary key);
+insert into emp2 values(:bonus,:basic,:empno);
+
+
+

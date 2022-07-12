@@ -1,0 +1,55 @@
+create table department(dno number,dname varchar(25),ename varchar(25),salary number);
+insert into department values(1,'mca','anju',30000);
+insert into department values(2,'mba','neethu',40000);
+insert into department values(3,'btech','sandra',50000);
+insert into department values(4,'mca','akhila',30000);
+insert into department values(5,'mtech','navya',20000);
+select * from department;
+
+
+
+create table employee(dno number,dname varchar(25),ename varchar(25),salary number,age number);
+insert into employee values(1,'mca','anju',30000,20);
+insert into employee values(2,'mca','anila',45000,21);
+insert into employee values(3,'mtech','sanu',10000,22);
+insert into employee values(4,'mba','akhila',30000,21);
+insert into employee values(5,'mtech','navya',20000,20);
+delete from employee where dname='mba';
+select * from employee;
+SELECT dno,dname from employee union  select dno,dname from department;
+SELECT dno from employee intersect select dno from department;
+SELECT dno,dname,ename from employee intersect select dno,dname,ename from department;
+SELECT dno from employee minus select dno from department;
+SELECT dno from employee intersect select dno from department;
+SELECT distinct(dname) from employee;
+alter table employee add(phoneno number);
+select * from employee;
+update employee set phoneno=960521735;
+delete from employee where phoneno=960521735 where dname='mca';
+select * from employee;
+drop table employee;
+
+
+
+
+
+
+
+create table employee1(dno number,dname varchar(25),ename varchar(25),salary number,age number);
+insert into employee1 values(1,'mca','anju',30000,20);
+insert into employee1 values(2,'mca','anila',45000,21);
+insert into employee1 values(3,'mtech','sanu',10000,22);
+insert into employee1 values(4,'','akhila',30000,21);
+insert into employee1 values(5,'mtech','navya',20000,21);
+select * from employee1;
+SELECT dno,dname from employee1 union  select dno,dname from department;
+SELECT dno from employee1 intersect select dno from department;
+SELECT distinct(dname) from employee1;
+alter table employee1 add(phoneno number);
+update employee1 set phoneno=960521735 where dno=1;
+update employee1 set phoneno=923456782 where dno=2;
+update employee1 set phoneno=923435678 where dno=3;
+update employee1 set phoneno=912323455 where dno=4;
+update employee1 set phoneno=909785362 where dno=5;
+select * from employee1;
+
